@@ -22,9 +22,23 @@ def test_check_password(password: str, expected: bool) -> None:
     assert check_password(password) == expected
 
 
-def test_check_password_length() -> None:
-    assert check_password("P@ssw0rdP@ssw0rdP@ssw0rdP@ssw0rd") == False
+@pytest.mark.parametrize(
+    "password, expected",   
+    [
+        ("P@ssw0rdP@ssw0rdP@ssw0rdP@ssw0rd", False),
+        ("P@s1", False),
+    ]
+)
+def test_check_password_length(password: str, expected: bool) -> None:
+    assert check_password(password) == expected
 
 
-def test_check_password_digit() -> None:
-    assert check_password("P@ssword") == False
+@pytest.mark.parametrize(
+    "password, expected",  
+    [
+        ("P@ssword", False),
+        ("Password", False),
+    ]
+)
+def test_check_password_digit(password: str, expected: bool) -> None:
+    assert check_password(password) == expected
