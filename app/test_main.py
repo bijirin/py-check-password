@@ -23,7 +23,7 @@ def test_check_password(password: str, expected: bool) -> None:
 
 
 @pytest.mark.parametrize(
-    "password, expected",   
+    "password, expected",
     [
         ("P@ssw0rdP@ssw0rdP@ssw0rdP@ssw0rd", False),
         ("P@s1", False),
@@ -34,7 +34,7 @@ def test_check_password_length(password: str, expected: bool) -> None:
 
 
 @pytest.mark.parametrize(
-    "password, expected",  
+    "password, expected",
     [
         ("P@ssword", False),
         ("Password", False),
